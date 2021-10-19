@@ -1,5 +1,5 @@
 var script = document.createElement('script');
-script.src = "../Js/AddContact.js";
+script.src = "../Js/Contact.js";
 document.head.appendChild(script);
 
 window.addEventListener('DOMContentLoaded', (event) => {
@@ -97,7 +97,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   });
 
-
   let button = document.getElementById("submit-button");
   name.addEventListener('input', function () {
     if (name.value == "") {
@@ -115,9 +114,8 @@ const activateSubmitButton = () => {
   button.classList.add("submit-button");
   button.disabled = false;
 }
-
 const setErrorText = (errorName, errorMessage) => {
-    const textError = document.querySelector(errorName);
-    textError.textContent = errorMessage;
-    return;
-  }
+  const textError = document.querySelector(errorName);
+  textError.textContent = errorMessage;
+  return;
+}
