@@ -220,3 +220,44 @@ error-output {
 .submit-button-disabled:hover{
     cursor: not-allowed;
 }
+@media screen and (max-width:576px){
+    .form-head{
+        margin-bottom:10px;
+    }
+    .form-head-text{
+        font:normal normal normal 15px/20px Roboto;
+    }
+    .form-cancel-img{
+        width:20px;
+        margin:20px 5px 20px 0px;
+    }
+    .row-content{
+        padding:10px;
+        justify-content:center;
+        margin:0;
+    }
+    .row-content-exp{
+        flex-direction:column;
+        padding:10px;
+    }
+    .oneRow-content{
+        margin-right:0;
+    }
+    .select-input{
+        padding:5px;
+        font-size:12px;
+    }
+    .input{
+        padding:5px;
+        height:28px;
+    }
+    .submit-reset-container{
+        justify-content:center;
+        width:100%;
+    }
+    .button{
+        font-size:16px;
+        min-width:80px;
+        padding:2px;
+    }
+}
