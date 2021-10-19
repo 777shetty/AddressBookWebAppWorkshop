@@ -204,9 +204,9 @@ error-output {
 .submit-button:hover {
     background: #008CFF 0% 0% no-repeat padding-box;
     border: 1px solid #969696;
-    border-radius: 5px;
+    border-radius: 30px;
     opacity: 1;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 .submit-button-disabled{
     border: none;
