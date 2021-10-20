@@ -1,4 +1,5 @@
-let addressBookContactJSONObject={}
+let addressBookContactJSONObject = {};
+let isUpdate = false;
 const save = (event) => {
   try {
       setAddressBookContactJSONObject();
@@ -9,6 +10,7 @@ const save = (event) => {
       return;
   }
 };
+
 
 const UpdateLocalStorage = () => {
   let addressBookList = JSON.parse(localStorage.getItem("AddressBookList"));
@@ -35,7 +37,34 @@ const setAddressBookContactJSONObject = () => {
   addressBookContactJSONObject._state = getValue('#state');
   addressBookContactJSONObject._zip = getValue('#zip');
 };
+const setForm = () => {
+  setValue("#name", addressBookContactJSONObject._name);
+  setValue("#phoneNumber", addressBookContactJSONObject._phoneNumber);
+  setValue("#address", addressBookContactJSONObject._address);
+  setValue("#city", addressBookContactJSONObject._city);
+  setValue("#state", addressBookContactJSONObject._state);
+  setValue("#zip", addressBookContactJSONObject._zip);
+};
+const checkForUpdate = () => {
+  const personToEditJson = localStorage.getItem("PersonToEdit");
+  isUpdate = personToEditJson ? true : false;
+  if (!isUpdate) return;
+  addressBookContactJSONObject = JSON.parse(personToEditJson);
+  setForm();
+};
 
+const setSelectedValues = (propertyValue, value) => {
+  let allItems = document.querySelectorAll(propertyValue);
+  allItems.forEach(item => {
+      if (Array.isArray(value)) {
+          if (value.includes(item.value)) {
+              item.setItem = value;
+          }
+      } else if (item.value === value)
+          item.setItem = value;
+  });
+
+}
 
 
 const createAddressBookContactData = (id) => {
