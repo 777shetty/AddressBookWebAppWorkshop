@@ -6,31 +6,14 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
   const name = document.querySelector('#name');
   name.addEventListener('input', function () {
-    let names = document.querySelector('#name').value.split(" ");
-    if (names[0].length == 0) {
-      setErrorText('.name-error', "");
-      return;
-    }
-    if (names.length == 2) {
+    let names = document.querySelector('#name').value;
       try {
-        (new Contact()).firstName = names[0];
-        setErrorText('.name-error', "");
-        (new Contact()).lastName = names[1];
+        (new Contact()).name = names;
         setErrorText('.name-error', "");
       } catch (e) {
         setErrorText('.name-error', e);
       }
-    }
-    else {
-      try {
-        (new Contact()).firstName = names[0];
-        setErrorText('.name-error', "");
-        (new Contact()).lastName = "";
-        setErrorText('.name-error', "");
-      } catch (e) {
-        setErrorText('.name-error', e);
-      }
-    }
+   
   });
 
   const addressElement = document.querySelector('#address');
@@ -83,7 +66,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 
   });
-
   let button = document.getElementById("submit-button");
   name.addEventListener('input', function () {
     if (name.value == "") {

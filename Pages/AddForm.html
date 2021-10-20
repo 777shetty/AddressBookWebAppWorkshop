@@ -10,6 +10,7 @@
       <script src="../Js/Addform.js"></script>
       <script src="../Js/StoreContact.js"></script>
       <script src="../Js/utility.js"></script>
+      <script src="../Js/site_properties.js"></script>
     </head>
     <body>
       <header class="header-content header">
@@ -30,13 +31,13 @@
             <div class="row-content">
               <label class="label text" for="name">Full Name</label>
               <div class="row-input">
-              <input class="input" type="text" name="Name" id="name" required>
+              <input class="input" type="text" name="name" id="name" required>
               <error-output class="name-error" for="text"></error-output>
             </div>
           </div>
           <div class="row-content">
             <label class="label text" for="phone">Phone Number</label>
-            <input class="input" type="text" name="Phone" id="phone" required>
+            <input class="input" type="text" name="phone" id="phone" required>
             <error-output class="phone-error" for="text"></error-output>
         </div>
           <div class="row-content">
@@ -46,7 +47,7 @@
           </div>
           <div class="row-content-exp">
             <div class="oneRow-content">
-            <label class="label text" for="city">City</label>
+            <label class="label text" for="city" id="city" >City</label>
             <select class="select-input" required>
               <option value="" selected disabled hidden>Select City</option>
               <option value="Pune">Pune</option>
@@ -58,7 +59,7 @@
             </select>
           </div>
           <div class="oneRow-content">
-            <label class="label text" for="state">State</label>
+            <label class="label text" for="state" id="state">State</label>
             <select class="select-input" required>
               <option value="" selected disabled hidden>Select State</option>
               <option value="Karnataka">Karnataka</option>
