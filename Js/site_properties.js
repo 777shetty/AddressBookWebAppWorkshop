@@ -1,5 +1,5 @@
 let site_properties = {
     use_local_storage: "true",
-    home_page: "../Pages/home.html",
+    home_page: "../Pages/AddHome.html",
     add_contact_page:"../Pages/AddForm.html",
 } 
