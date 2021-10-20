@@ -101,24 +101,11 @@ class Contact{
         throw 'Phone Number is Invalid'
     }
 
-    get email()
-    {
-        return this._email;
-    }
-
-    set email(email)
-    {
-        let emailRegex = RegExp('^[a-z]+([.]?[a-z0-9_+-]+)?@[a-z1-9]+[.][a-z]{2,}([.][a-z]{2,})?$');
-        if(emailRegex.test(email))
-        this._email = email;
-        else
-        throw 'Email Incorrect';
-    }
 
     toString()
     {
         return "Id = "+this.id+", FirstName = "+this.firstName+", Address = "+this.address+
-                ", City = "+this.city+", State = "+this.state+", Zip = "+this.zip+", Phone = "+this.phone+", Email = "+this.email;
+                ", City = "+this.city+", State = "+this.state+", Zip = "+this.zip+", Phone = "+this.phone;
     }
 
 }
