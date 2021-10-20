@@ -9,6 +9,7 @@
       <title>Address Book form</title>
       <script src="../Js/Addform.js"></script>
       <script src="../Js/StoreContact.js"></script>
+      <script src="../Js/utility.js"></script>
     </head>
     <body>
       <header class="header-content header">
@@ -21,7 +22,7 @@
         </div>
       </header>
       <div class="form-content">
-        <form class="form" action="#" onreset="resetForm()" onsubmit="save()" autocomplete="off">
+        <form class="form" action="#" onsubmit="save();return false" onreset="resetForm()">
             <div class="form-head">
                 <div class="form-head-text">Person Address Form</div>
                     <a href="./home.html" ><img src="../assets/images/cancel.png" class = "form-cancel-img"></a>
@@ -74,21 +75,9 @@
         </div>
         <error-output class="zip-error" for="text"></error-output>
         </div>
-        
-      <div class="row-content">
-        <label class="label text" for="email">Email</label>
-        <input class="input" type="text" name="Email" id="email" required>
-        <error-output class="email-error" for="text"></error-output> 
-    </div>
-    <div class="submit-reset-container">
-        <a href="" class="reset-button button cancel-button">Cancel</a>
-
-
-
-        <span class="submit-reset">
-            <button type="submit" class="button submit-button-disabled" id="submit-button" disabled>ADD</button>
-            <button type="reset" class="reset-button button" id="submit-reset">Reset</button>
-        </span>
+     <div class="submit-reset-container">
+        <button type="submit" class="button submit-button-disabled" id="submit-button">Add</button>
+        <button type="button" onclick="resetForm()" class="button">Reset</button>
       </div>
         </form>
     </div>

@@ -200,13 +200,12 @@ error-output {
     opacity: 1;
 }
 
-
 .submit-button:hover {
     background: #008CFF 0% 0% no-repeat padding-box;
     border: 1px solid #969696;
-    border-radius: 30px;
+    border-radius: 5px;
     opacity: 1;
-    color: rgb(255, 255, 255);
+    color: white;
 }
 .submit-button-disabled{
     border: none;
@@ -219,23 +218,6 @@ error-output {
 }
 .submit-button-disabled:hover{
     cursor: not-allowed;
-}
-.cancel-button {
-    display: flex-end;
-    text-decoration: none;
-    text-align: center;
-    background: #E2E2E2 0% 0% no-repeat padding-box;
-    border: 1px solid #969696;
-    border-radius: 5px;
-    opacity: 1;
-}
-
-.cancel-button:hover {
-    background: #707070 0% 0% no-repeat padding-box;
-    border: 1px solid #969696;
-    border-radius: 5px;
-    opacity: 1;
-    color: white;
 }
 
 .reset-button {

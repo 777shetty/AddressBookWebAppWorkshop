@@ -1,5 +1,5 @@
 var script = document.createElement('script');
-script.src = "../Js/Contact.js";
+script.src = "../Js/contact.js";
 document.head.appendChild(script);
 
 window.addEventListener('DOMContentLoaded', (event) => {
@@ -15,6 +15,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
       try {
         (new Contact()).firstName = names[0];
         setErrorText('.name-error', "");
+        (new Contact()).lastName = names[1];
+        setErrorText('.name-error', "");
       } catch (e) {
         setErrorText('.name-error', e);
       }
@@ -22,6 +24,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     else {
       try {
         (new Contact()).firstName = names[0];
+        setErrorText('.name-error', "");
+        (new Contact()).lastName = "";
         setErrorText('.name-error', "");
       } catch (e) {
         setErrorText('.name-error', e);
@@ -65,23 +69,6 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 
   });
-
-  const emailElement = document.querySelector('#email');
-  const emailError = document.querySelector('.email-error');
-  emailElement.addEventListener('input', function () {
-    if (emailElement.value == "") {
-      setErrorText('.email-error', "");
-      return;
-    }
-    try {
-      (new Contact()).email = emailElement.value;
-      setErrorText('.email-error', "");
-    } catch (e) {
-      setErrorText('.email-error', e);
-    }
-
-  });
-
   const zipElement = document.querySelector('#zip');
   zipElement.addEventListener('input', function () {
     if (zipElement.value == "") {
@@ -96,7 +83,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 
   });
-  
+
   let button = document.getElementById("submit-button");
   name.addEventListener('input', function () {
     if (name.value == "") {
