@@ -10,16 +10,16 @@ class Contact{
         this._id = id;
     }
 
-    get firstName()
+    get name()
     {
-        return this._firstName;
+        return this._name;
     }
 
-    set firstName(firstName)
+    set name(name)
     {
-        let firstNameRegex = RegExp('^[A-Z][a-z]{2,}$')
-        if(firstNameRegex.test(firstName))
-        this._firstName = firstName;
+        let nameRegex = RegExp('^[A-Z][a-z]{2,}$')
+        if(nameRegex.test(name))
+        this._name = name;
         else
         throw 'First Name is Invalid'
     }
@@ -104,7 +104,7 @@ class Contact{
 
     toString()
     {
-        return "Id = "+this.id+", FirstName = "+this.firstName+", Address = "+this.address+
+        return "Id = "+this.id+", FirstName = "+this.name+", Address = "+this.address+
                 ", City = "+this.city+", State = "+this.state+", Zip = "+this.zip+", Phone = "+this.phone;
     }
 
