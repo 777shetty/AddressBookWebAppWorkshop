@@ -96,7 +96,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 
   });
-
+  
   let button = document.getElementById("submit-button");
   name.addEventListener('input', function () {
     if (name.value == "") {
