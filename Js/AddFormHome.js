@@ -39,3 +39,23 @@ const createInnerHtml = () => {
     }
     document.querySelector("#table-display").innerHTML = innerHtml;
 };
+const remove = (node) => {
+    let contactData = addressBookContactList.find(contact => contact._id == node.id);
+    if (!contactData) return;
+    const index = addressBookContactList.map(contact => contact._id).indexOf(contactData._id);
+    addressBookContactList.splice(index, 1);
+    if(site_properties.use_local_storage.match("true")) {
+    localStorage.setItem("AddressBookList", JSON.stringify(addressBookContactList));
+    document.querySelector(".person-count").textContent = addressBookContactList.length;
+    createInnerHtml();
+}else {
+    const deleteURL = site_properties.server_url + contactData.id.toString();
+    makeServiceCall("DELETE", deleteURL, true)
+        .then(data => {
+            createInnerHtml();
+        })
+        .catch(error => {
+            console.log("DELETE Error Status: "+JSON.stringify(error));
+        });
+  }
+}

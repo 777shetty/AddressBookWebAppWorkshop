@@ -3,7 +3,7 @@ const save = (event) => {
   try {
       setAddressBookContactJSONObject();
       UpdateLocalStorage();
-      window.location.replace(site_properties.home_page);
+      open("../Pages/AddFormHome.html")
   } catch (submitError) {
       alert(submitError);
       return;
@@ -35,6 +35,7 @@ const setAddressBookContactJSONObject = () => {
   addressBookContactJSONObject._state = getValue('#state');
   addressBookContactJSONObject._zip = getValue('#zip');
 };
+
 
 
 const createAddressBookContactData = (id) => {
@@ -93,8 +94,7 @@ const resetForm = () => {
   setSelectedIndex('#state',0);
   setValue('#zip','');
   setValue('#phone','');
-  setValue('#email','');
-  let listOfErrors = ['.name-error','.address-error','.phone-error','.email-error','.zip-error'];
+  let listOfErrors = ['.name-error','.address-error','.phone-error','.zip-error'];
   listOfErrors.forEach(errorElement => {
     setErrorText(errorElement,"");
   });
