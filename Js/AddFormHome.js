@@ -65,3 +65,20 @@ const update = (node) => {
     localStorage.setItem("PersonToEdit", JSON.stringify(contactData));
     window.location.replace(site_properties.address_book_form_page);
 };
+const save = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    try{
+        setEmployeePayrollObject();
+        if(site_properties.use_local_storage.match("true")){
+        createAndUpdateStorage();
+        resetForm();
+        window.location.replace(site_properties.home_page);
+        }else {
+            createOrUpdateEmployeePayroll();
+        }
+    }catch(e){
+        console.log(e);
+        return;
+    }
+}
