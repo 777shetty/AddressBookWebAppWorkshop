@@ -86,14 +86,36 @@ const activateSubmitButton = () => {
    
 
 const save = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
     try {
-        setAddressBookContactJSONObject();
-        UpdateLocalStorage();
-        resetForm();
-        open("../Pages/AddHome.html");
-    } catch (submitError) {
-        alert(submitError);
+        setContactObject();
+        if (site_properties.use_local_storage.match("true")) {
+            createAndUpdateStorage();
+            resetForm();
+            window.location.replace(site_properties.home_page);
+        } else {
+            createOrUpdateContactData();
+        }
+    } catch (e) {
+        console.log(e);
         return;
+    }
+    const createOrUpdateContactData = () => {
+        let postUrl = site_properties.server_url;
+        let methodCall = "POST";
+        if (isUpdate) {
+            methodCall = "PUT";
+            postUrl = postUrl + contactObj.id.toString();
+        }
+        makeServiceCall(methodCall, postUrl, true, contactObj)
+            .then(responseText => {
+                resetForm();
+                window.location.replace(site_properties.home_page);
+            })
+            .catch(error => {
+                throw error;
+            });
     }
 };
 
