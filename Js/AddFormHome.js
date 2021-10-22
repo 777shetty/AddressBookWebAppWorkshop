@@ -53,5 +53,5 @@ const update = (node) => {
     let contactData = addressBookContactList.find(contact => contact.id == node.id);
     if (!contactData) return;
     localStorage.setItem("PersonToEdit", JSON.stringify(contactData));
-    window.location.replace(site_properties.address_book_form_page);
+    window.location.replace(site_properties.add_contact_page);
 };
