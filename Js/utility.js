@@ -1,31 +1,19 @@
-function validateRegex(regexPattern, value) {
-    return (new RegExp(regexPattern)).test(value);
+const checkName = (name) => {
+    let nameRegex = RegExp("^[A-Z]{1}[a-z]{2,}$");
+    if (!nameRegex.test(name)) throw 'Name is Incorrect!';
 }
 
-function checkName(name, nametype) {
-    if (!validateRegex('^[A-Z][a-z]{2,}$', name))
-        throw nametype + ' is Invalid';
+const checkPhone = (phone) => {
+    let phoneRegex = RegExp("^[+]{0,1}[0-9]{0,2}[6-9]{1}[0-9]{9}$");
+    if (!phoneRegex.test(phone)) throw 'Phone Number is Invalid!';
 }
 
-function checkAddress(address) {
-    let words = address.split(" ");
-    if (words.length > 1) {
-        for (const word of words) {
-            if (!validateRegex('^[A-Za-z,-/.0-9]{3,}$', word))
-                throw 'Address is Invalid';
-        }
-    }
-    else {
-        throw 'Address is Invalid';
-    }
+const checkAddress = (address) => {
+    let addressRegex = RegExp('^[a-zA-Z0-9#,&.]{3,}\\s{1,}[a-zA-Z0-9#,&.]{3,}');
+    if (!addressRegex.test(address)) throw 'Address is Incorrect!';
 }
 
-function checkZip(zip) {
-    if (!validateRegex('^[0-9]{3}[ ]?[0-9]{3}$', zip))
-        throw 'Zip is Invalid';
-}
-
-function checkPhoneNumber(phone) {
-    if (!validateRegex('^([+]\\d{1,3})? ?\\d{10}$', phone))
-        throw 'Phone Number is Invalid';
+const checkZip = (zip) => {
+    let zipRegex = RegExp("^[0-9]{3}\\s{0,1}[0-9]{3}$");
+    if (!zipRegex.test(zip)) throw 'Zipcode is Incorrect!';
 }
